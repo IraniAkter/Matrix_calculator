@@ -12,6 +12,7 @@
     $result2= "";
     $result3 = "";
     $result4 = "";
+
     if(isset($_POST['operator'])){
         $first_num = $_POST['first_num'];
         $second_num = $_POST['second_num'];
@@ -22,54 +23,71 @@
         $seventh_num = $_POST['seventh_num'];
         $eighth_num = $_POST['eighth_num'];
         $operator = $_POST['operator'];
+        if(is_numeric($first_num) && is_numeric($second_num)){
+            $arr1=array(
+                array($first_num,$second_num),
+                array($third_num,$fourth_num)
+            );
+            $arr2 =array(
+                array($fifth_num,$sixth_num),
+                array($seventh_num,$eighth_num)
+            );
+            if(is_numeric($first_num)&& is_numeric($second_num) && is_numeric($third_num) && is_numeric($fourth_num) && is_numeric($fifth_num) && is_numeric($sixth_num) && is_numeric($seventh_num)&& is_numeric($eighth_num)){
 
-        if($operator=="A+B"){
-            $result1 = $first_num + $fifth_num;
-            #echo $result1;
+                if(is_numeric($arr1[0][0])&& is_numeric($arr2[0][0]) && is_numeric($arr1[0][1]) && is_numeric($arr2[0][1]) && is_numeric($arr1[1][0]) && is_numeric($arr2[1][0]) && is_numeric($arr1[1][1])&& is_numeric($arr2[1][1])){
+
+                    if($operator=="A+B"){
+                        $result1 = $arr1[0][0] + $arr2[0][0];
+                        #echo $result1;
+                    }
+                    elseif($operator=="A-B"){
+                        $result1 = $arr1[0][0] - $arr2[0][0];
+                       #echo $result1;
+                    }
+                    else{
+                        $result1 = $arr1[0][0] * $arr2[0][0];
+                    }
+                    //second
+                    if($operator =="A+B"){
+                        $result2= $arr1[0][1] + $arr2[0][1];
+                        #echo $result2;
+                    }
+                    elseif($operator=="A-B"){
+                        $result2= $arr1[0][1] - $arr2[0][1];
+                       #echo $result2;
+                    }
+                    else{
+                        $result2= $arr1[0][1] * $arr2[0][1];
+                    }
+                    //third
+                    if($operator =="A+B"){
+                        $result3= $arr1[1][0] + $arr2[1][0];
+                      
+                    }
+                    elseif($operator=="A-B"){
+                        $result3= $arr1[1][0] - $arr2[1][0];
+                      
+                    }
+                    else{
+                        $result3= $arr1[1][0] * $arr2[1][0];
+                    }
+                    //fourth
+                    if($operator =="A+B"){
+                        $result4= $arr1[1][1] + $arr2[1][1];
+                    
+                    }
+                    elseif($operator=="A-B"){
+                        $result4= $arr1[1][1] - $arr2[1][1];
+                      
+                    }
+                    else{
+                        $result4= $arr1[1][1] * $arr2[1][1];
+                    }
+                }
+            }
         }
-        elseif($operator=="A-B"){
-           $result1 = $first_num - $fifth_num;
-           #echo $result1;
-        }
-        else{
-            $result1 = $first_num * $fifth_num;
-        }
-        //second
-        if($operator =="A+B"){
-            $result2= $second_num + $sixth_num;
-            #echo $result2;
-        }
-        elseif($operator=="A-B"){
-           $result2 = $second_num - $sixth_num;
-           #echo $result2;
-        }
-        else{
-            $result2 = $second_num * $sixth_num;
-        }
-        //third
-        if($operator =="A+B"){
-            $result3=$third_num + $seventh_num;
-          
-        }
-        elseif($operator=="A-B"){
-            $result3=$third_num - $seventh_num;
-          
-        }
-        else{
-            $result3=$third_num * $seventh_num;
-        }
-        //fourth
-        if($operator =="A+B"){
-            $result4= $fourth_num + $eighth_num;
+
         
-        }
-        elseif($operator=="A-B"){
-            $result4= $fourth_num - $eighth_num;
-          
-        }
-        else{
-            $result4= $fourth_num * $eighth_num;
-        }
 
 
     }
